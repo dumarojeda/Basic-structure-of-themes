@@ -47,13 +47,13 @@ end
 #   end
 # end
 
-set :css_dir, 'stylesheets'
+set :css_dir, 'assets/css'
 
-set :js_dir, 'javascripts'
+set :js_dir, 'assets/js'
 
-set :images_dir, 'images'
+set :images_dir, 'assets/images'
 
-set :fonts_dir, 'fonts'
+set :fonts_dir, 'assets/font'
 
 
 set :haml, format: :html5
@@ -74,4 +74,10 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+end
+
+# Add bower's directory to sprockets asset path
+after_configuration do
+  @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
+  sprockets.append_path File.join "#{root}", @bower_config["directory"]
 end

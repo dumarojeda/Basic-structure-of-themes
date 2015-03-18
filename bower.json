@@ -1,0 +1,20 @@
+{
+  "name": "theme_soccer_champions_academy",
+  "version": "0.0.0",
+  "authors": [
+    "dumarojeda <dumarojeda@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "http://soccerchampionsacademy.com/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}
