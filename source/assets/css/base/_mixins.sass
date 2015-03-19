@@ -1,0 +1,34 @@
+// ======================================================================================
+// Mixins
+// ======================================================================================
+
+
+// Breakpoints helpers
+=desktop
+  @media screen and (max-width: 1199px)
+    @content
+
+=tablet
+  @media screen and (max-width: 991px)
+    @content
+
+=mobile
+  @media screen and (max-width: 767px)
+    @content
+
+// Em to px helper
+@function em($px, $base: $base-font-size)
+  @return ($px / $base) * 1em
+
+// Border Radius
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  -ms-border-radius: $radius
+  border-radius: $radius
+
+=border-radius-combination($top-left, $top-right, $bottom-right, $bottom-left)
+  -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left
+  -moz-border-radius: $top-left $top-right $bottom-right $bottom-left
+  -ms-border-radius: $top-left $top-right $bottom-right $bottom-left
+  border-radius: $top-left $top-right $bottom-right $bottom-left
