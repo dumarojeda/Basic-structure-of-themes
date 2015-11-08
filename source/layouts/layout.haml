@@ -7,21 +7,19 @@
     / Use title if it's in the page YAML frontmatter
     %title= current_page.data.title || ""
     = stylesheet_link_tag "style"
-    %link{:rel => "shortcut icon", :type => "image/png", :href => "../images/favicon.png"}/
-    %link{:rel => "icon", :type => "image/png", :href => "../images/favicon.png"}/
-    %link{:rel => "icon", :type => "image/x-icon", :href => "../images/favicon.ico"}/
-    %link{:rel => "apple-touch-icon-precomposed", :sizes =>"114x114", :href => "../images/apple-touch-icon-114x114-precomposed.png"}/
-    %link{:rel => "apple-touch-icon-precomposed", :sizes =>"72x72", :href => "../images/apple-touch-icon-72x72-precomposed.png"}/
-    %link{:rel => "apple-touch-icon-precomposed", :href => "../images/apple-touch-icon-57x57-precomposed.png"}/
+    %link{:rel => "shortcut icon", :type => "image/png", :href => "/assets/images/favicon.png"}/
+    %link{:rel => "icon", :type => "image/png", :href => "/assets/images/favicon.png"}/
+    %link{:rel => "icon", :type => "image/x-icon", :href => "/assets/images/favicon.ico"}/
+    %link{:rel => "apple-touch-icon-precomposed", :sizes =>"114x114", :href => "/assets/images/apple-touch-icon-114x114-precomposed.png"}/
+    %link{:rel => "apple-touch-icon-precomposed", :sizes =>"72x72", :href => "/assets/images/apple-touch-icon-72x72-precomposed.png"}/
+    %link{:rel => "apple-touch-icon-precomposed", :href => "/assets/images/apple-touch-icon-57x57-precomposed.png"}/
 
-  %body{:class => page_classes}
+  %body{class: current_page.data.body_class || 'page'}
     / Header
-    %section#wrapper-header
-      %header.header
-      %nav.main-menu
+    = partial "layouts/header"
     / Content
     = yield
     / Footer
-    %section#wrapper-footer
-      %footer.footer
+    = partial "layouts/footer"
+
   = javascript_include_tag "script"

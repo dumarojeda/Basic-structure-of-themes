@@ -67,7 +67,7 @@ configure :build do
   activate :minify_javascript
 
   # Enable cache buster
-  activate :asset_hash
+  # activate :asset_hash
 
   # Use relative URLs
   activate :relative_assets
@@ -80,4 +80,11 @@ end
 after_configuration do
   @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
   sprockets.append_path File.join "#{root}", @bower_config["directory"]
+end
+
+# Set active states navigation
+helpers do
+  def nav_active(path)
+    current_page.path == path ? {:class => "active"} : {}
+  end
 end

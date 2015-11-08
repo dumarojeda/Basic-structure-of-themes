@@ -1,13 +1,19 @@
 // ======================================================================================
 // Tags
 // ======================================================================================
+::selection
+  background: $secondary-color
+  color: #fff
+
 a
   color: $link-color
   text-decoration: none
 
 body
   color: $base-color
-  background: $background-color
+  background: $background-color top right no-repeat
+  background-attachment: fixed
+  background-size: cover
   font-family: $base-font-family
   font-size: $base-font-size
   overflow-x: hidden
@@ -17,7 +23,11 @@ h1, h2, h3, h4, h5, h6
   font-weight: normal
   color: $title-color
   margin: 0.5em 0
+  text-transform: uppercase
 
 img
   max-width: 100%
   height: auto
+
+p
+  text-align: justify

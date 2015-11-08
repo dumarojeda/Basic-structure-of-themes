@@ -1,0 +1,21 @@
+// ======================================================================================
+// Forms
+// ======================================================================================
+input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="password"], textarea, select
+  width: 100%
+  display: block
+  margin: 0px 0px 11px 0px
+  padding: 10px 15px
+  border: 1px solid #ccc
+  outline: none
+  +prefix(box-sizing, border-box)
+
+input[type="submit"], input[type="button"], .button
+  background: $primary-color
+  padding: 10px 20px
+  color: #fff
+  outline: none
+  border: 0
+
+  &:hover
+    background: $secondary-color

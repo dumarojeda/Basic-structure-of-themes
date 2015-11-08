@@ -4,31 +4,40 @@
 
 
 // Breakpoints helpers
-=desktop
-  @media screen and (max-width: 1199px)
+
+// 480px or 30em
+=small
+  @media screen and (min-width: 30em)
     @content
 
-=tablet
-  @media screen and (max-width: 991px)
+// 640px or 40em
+=medium-a
+  @media screen and (min-width: 40em)
     @content
 
-=mobile
-  @media screen and (max-width: 767px)
+// 768px or 48em
+=medium-b
+  @media screen and (min-width: 48em)
+    @content
+
+// 960px or 60em
+=large-a
+  @media screen and (min-width: 60em)
+    @content
+
+// 1024px or 64em
+=large-b
+  @media screen and (min-width: 64em)
     @content
 
 // Em to px helper
 @function em($px, $base: $base-font-size)
   @return ($px / $base) * 1em
 
-// Border Radius
-=border-radius($radius)
-  -webkit-border-radius: $radius
-  -moz-border-radius: $radius
-  -ms-border-radius: $radius
-  border-radius: $radius
-
-=border-radius-combination($top-left, $top-right, $bottom-right, $bottom-left)
-  -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left
-  -moz-border-radius: $top-left $top-right $bottom-right $bottom-left
-  -ms-border-radius: $top-left $top-right $bottom-right $bottom-left
-  border-radius: $top-left $top-right $bottom-right $bottom-left
+// Prefixes
+=prefix($name, $argument)
+  -webkit-#{$name}: #{$argument}
+  -ms-#{$name}: #{$argument}
+  -moz-#{$name}: #{$argument}
+  -o-#{$name}: #{$argument}
+  #{$name}: #{$argument}
