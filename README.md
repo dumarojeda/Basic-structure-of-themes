@@ -11,7 +11,7 @@ This kit contains:
 5. Smacss
 6. Livereload
 
-Instructions of use
+### Instructions of use
 
 1. git clone git@github.com:dumarojeda/Basic-structure-of-themes.git
 3. bundle install
