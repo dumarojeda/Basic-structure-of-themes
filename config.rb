@@ -47,14 +47,13 @@ end
 #   end
 # end
 
-set :css_dir, 'assets/css'
+# i18n
+activate :i18n
 
-set :js_dir, 'assets/js'
-
-set :images_dir, 'assets/images'
-
-set :fonts_dir, 'assets/font'
-
+set :css_dir, 'css'
+set :js_dir, 'js'
+set :images_dir, 'images'
+set :fonts_dir, 'fonts'
 
 set :haml, format: :html5
 

@@ -35,9 +35,16 @@
   @return ($px / $base) * 1em
 
 // Prefixes
-=prefix($name, $argument)
-  -webkit-#{$name}: #{$argument}
-  -ms-#{$name}: #{$argument}
-  -moz-#{$name}: #{$argument}
-  -o-#{$name}: #{$argument}
-  #{$name}: #{$argument}
+$default-prefixes: webkit moz ms o
+=prefix($property, $value, $prefixes: $default-prefixes)
+  @each $prefix in $prefixes
+    -#{$prefix}-#{$property}: #{$value}
+  #{$property}: #{$value}
+
+// Line Clamp
+=line-clamp($lines)
+  overflow: hidden
+  text-overflow: ellipsis
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  -webkit-line-clamp: $lines
