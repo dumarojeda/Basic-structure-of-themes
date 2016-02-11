@@ -1,0 +1,87 @@
+// ======================================================================================
+// Grid
+// ======================================================================================
+[class*="boxes-"]
+  margin-bottom: 0.8em
+  &::before, &::after
+    content: ""
+    display: table
+    clear: both
+
+.box
+  display: inline-block
+  vertical-align: top
+  +prefix(box-sizing, border-box)
+
+.boxes-one
+  .box
+    width: 100%
+
+.boxes-two
+  .box
+    width: 49.5%
+    margin-right: 1%
+    &:last-child
+      margin-right: 0
+  &.no-margin
+    .box
+      margin-right: 0
+      width: 50%
+
+.boxes-three
+  .box
+    width: 32.666666%
+    margin-right: 1%
+    &:last-child
+      margin-right: 0
+  &.no-margin
+    .box
+      margin-right: 0
+      width: 33.333333%
+
+.boxes-four
+  .box
+    width: 24.25%
+    margin-right: 1%
+    &:last-child
+      margin-right: 0
+  &.no-margin
+    .box
+      margin-right: 0
+      width: 25%
+
+.boxes-five
+  .box
+    width: 19.2%
+    margin-right: 1%
+    &:last-child
+      margin-right: 0
+  &.no-margin
+    .box
+      margin-right: 0
+      width: 20%
+
+.boxes-six
+  .box
+    width: 15.833333%
+    margin-right: 1%
+    &:last-child
+      margin-right: 0
+  &.no-margin
+    .box
+      margin-right: 0
+      width: 16.666666%
+
+//Styles for examples (Delete)
+.box
+  padding: 0.5em
+  background: rgba($black, 0.5)
+  text-align: center
+  color: $white
+
+.boxes-two, .boxes-three, .boxes-four, .boxes-five, .boxes-six
+  &.no-margin
+    .box
+      border-right: 1px solid rgba($black, 0.2)
+      &:last-child
+        border-right: 0

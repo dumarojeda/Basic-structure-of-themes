@@ -23,3 +23,5 @@
     = partial "layouts/footer"
 
   = javascript_include_tag "script"
+  %script
+    document.body.innerHTML = document.body.innerHTML.replace(/>\s+</g, '><');
