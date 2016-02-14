@@ -13,7 +13,8 @@
 // Content
 // ======================================================================================
 .main-content
-  margin-bottom: 0.8em
+  +small
+    margin-bottom: 0.8em
   &::before, &::after
     content: ""
     display: table
@@ -22,49 +23,76 @@
     display: inline-block
     vertical-align: top
     +prefix(box-sizing, border-box)
+    margin-bottom: 0.8em
+    +small
+      margin-bottom: 0
   .content
-    width: 69.5%
-    margin-right: 1%
+    width: 100%
+    +small
+      width: 69.5%
+      margin-right: 1%
   .sidebar
-    width: 29.5%
-    margin-right: 0
+    width: 100%
+    +small
+      width: 29.5%
+      margin-right: 0
   &.no-margin
     .content
-      width: 70%
-      margin-right: 0
-    .sidebar
-      width: 30%
-      margin-right: 0
-  &.sidebar-left
-    .content
-      width: 69.5%
-      margin-right: 0
-    .sidebar
-      width: 29.5%
-      margin-right: 1%
-    &.no-margin
-      .content
+      width: 100%
+      +small
         width: 70%
         margin-right: 0
-      .sidebar
+    .sidebar
+      width: 100%
+      +small
         width: 30%
         margin-right: 0
+  &.sidebar-left
+    .content
+      width: 100%
+      +small
+        width: 69.5%
+        margin-right: 0
+    .sidebar
+      width: 100%
+      +small
+        width: 29.5%
+        margin-right: 1%
+    &.no-margin
+      .content
+        width: 100%
+        +small
+          width: 70%
+          margin-right: 0
+      .sidebar
+        width: 100%
+        +small
+          width: 30%
+          margin-right: 0
   &.sidebars
     .content
-      width: 49%
-      margin-right: 1%
+      width: 100%
+      +small
+        width: 49%
+        margin-right: 1%
     .sidebar
-      width: 24.5%
-      margin-right: 1%
+      width: 100%
+      +small
+        width: 24.5%
+        margin-right: 1%
       &:last-child
         margin-right: 0
     &.no-margin
       .content
-        width: 50%
-        margin-right: 0
+        width: 100%
+        +small
+          width: 50%
+          margin-right: 0
       .sidebar
-        width: 25%
-        margin-right: 0
+        width: 100%
+        +small
+          width: 25%
+          margin-right: 0
 
 //Styles for examples (Delete)
 .content, .sidebar
