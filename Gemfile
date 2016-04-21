@@ -14,4 +14,10 @@ gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 gem "tzinfo-data", platforms: [:mswin, :mingw]
 
 # Compass
-gem 'compass', '~> 1.0.3'
+gem 'compass'
+
+# Twitter Bootstrap
+gem 'boostrap-sass', '~> 0.0.2'
+
+# https://github.com/cristianferrarig/font-awesome-middleman
+gem 'font-awesome-middleman'
