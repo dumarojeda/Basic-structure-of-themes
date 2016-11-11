@@ -15,12 +15,12 @@
     %link{:rel => "apple-touch-icon-precomposed", :href => "images/apple-touch-icon-57x57-precomposed.png"}/
 
   %body{class: current_page.data.body_class || 'page'}
-    / Header
-    = partial "layouts/header"
-    / Content
+    -# Header
+    = partial "partials/header"
+    -# Content
     = yield
-    / Footer
-    = partial "layouts/footer"
+    -# Footer
+    = partial "partials/footer"
 
   = javascript_include_tag "script"
   %script
