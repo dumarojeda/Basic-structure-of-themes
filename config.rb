@@ -1,11 +1,8 @@
-###
-# Compass
-###
-
-# Change Compass configuration
-# compass_config do |config|
-#   config.output_style = :compact
-# end
+# Set folders to assets
+set :css_dir,     'css'
+set :js_dir,      'js'
+set :images_dir,  'images'
+set :fonts_dir,   'fonts'
 
 ###
 # Page options, layouts, aliases and proxies
@@ -14,19 +11,32 @@
 # Per-page layout changes:
 #
 # With no layout
+page '/*.xml', layout: false
+page '/*.json', layout: false
+page '/*.txt', layout: false
+
 # page "/path/to/file.html", :layout => false
-#
+
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
-#
-# A path which all have the same layout
-# with_layout :admin do
-#   page "/admin/*"
-# end
 
 # Proxy pages (https://middlemanapp.com/advanced/dynamic_pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
 #  :which_fake_page => "Rendering a fake page with a local variable" }
+
+# General configuration
+
+# Reload the browser automatically whenever files change
+configure :development do
+  # Create Livereload
+  activate :livereload
+  
+  # Create pretty urls
+  activate :directory_indexes
+
+  # Middleman autoprefixer
+  activate :autoprefixer
+end
 
 ###
 # Helpers
@@ -47,18 +57,25 @@ end
 #   end
 # end
 
+# Set active states navigation
+helpers do
+  def nav_active(path)
+    current_page.path == path ? {:class => "active"} : {}
+  end
+end
+
 # i18n
 activate :i18n
 
-set :css_dir, 'css'
-set :js_dir, 'js'
-set :images_dir, 'images'
-set :fonts_dir, 'fonts'
+#URLS
+activate :sprockets
 
-set :haml, format: :html5
 
 # Build-specific configuration
 configure :build do
+  # Activate minify HTML
+  #activate :minify_html
+
   # For example, change the Compass output style for deployment
   activate :minify_css
 
@@ -71,19 +88,16 @@ configure :build do
   # Use relative URLs
   activate :relative_assets
 
+  #Gzip compression
+  #activate :gzip
+
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
 
-# Add bower's directory to sprockets asset path
 after_configuration do
+  # Bower files
   @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
-  sprockets.append_path File.join "#{root}", @bower_config["directory"]
-end
-
-# Set active states navigation
-helpers do
-  def nav_active(path)
-    current_page.path == path ? {:class => "active"} : {}
-  end
+  @bower_path = File.join root, @bower_config["directory"]
+  sprockets.append_path @bower_path
 end
